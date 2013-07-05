@@ -3,9 +3,10 @@ import net.minecraft.workbench.server.Server;
 import net.minecraft.workbench.server.players.BanList;
 public class TestServer implements Server
 {
-	public TestServer()
-	{
-	}
+    public TestServer()
+    {
+	
+    }
     private BanList aBanlist;
     public BanList getBanList()
     {

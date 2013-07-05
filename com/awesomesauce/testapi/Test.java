@@ -2,6 +2,7 @@ package com.awesomesauce.testapi;
 
 public class Test {
     private net.minecraft.workbench.WorkbenchImpl api;
+    @SuppressWarnings("unused")
     private net.minecraft.workbench.server.Server server;
     private boolean running;
     public Test()
