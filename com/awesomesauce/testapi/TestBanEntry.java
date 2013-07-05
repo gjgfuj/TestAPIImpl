@@ -8,6 +8,14 @@ class TestBanEntry implements BanEntry
 	private String source;
 	private Date expires;
 	private String reason;
+	public TestBanEntry(String aname)
+	{
+	    name = aname;
+	    created = new Date();
+	    source = "Unknown";
+	    expires = null;
+	    reason = "Banned from the server.";
+	}
 	public String getName()
 	{
 		return name;

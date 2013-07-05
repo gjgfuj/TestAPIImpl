@@ -1,5 +1,6 @@
 package com.awesomesauce.testapi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.workbench.*;
@@ -9,10 +10,11 @@ import net.minecraft.workbench.server.Server;
 public class TestAPI extends WorkbenchImpl
 {
   private Server server;
-  private List<Plugin> plugins;
-  public TestAPI()
+  public List<Plugin> plugins;
+  public TestAPI(Test game)
   {
     server = new TestServer();
+    plugins = new ArrayList<Plugin>();
     Workbench.setInstance(this); 
   }
   public String getImplementationName()
@@ -26,6 +28,13 @@ public class TestAPI extends WorkbenchImpl
   public Server getServer()
   {
     return server;
+  }
+  public void tickPlugins()
+  {
+      for (int i=0;i < plugins.size(); i++)
+      {
+	  plugins.get(i).tick();
+      }
   }
   @Override
   public void registerPlugin(Plugin plugin) {
