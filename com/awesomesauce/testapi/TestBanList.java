@@ -1,10 +1,16 @@
 package com.awesomesauce.testapi;
 import net.minecraft.workbench.server.players.*;
+
+import java.util.HashMap;
 import java.util.Map;
 class TestBanList implements BanList
 {
-	private boolean enabled;
-	private Map<String, BanEntry> entries;
+    private boolean enabled;
+    private Map<String, BanEntry> entries;
+    public TestBanList()
+    {
+	entries = new HashMap<String, BanEntry>();
+    }
     public boolean isEnabled()
     {
     	return enabled;

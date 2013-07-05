@@ -8,6 +8,7 @@ public class Test {
     {
         api = new TestAPI(this);
         server = api.getServer();
+        running = true;
     }
     public void importPlugins() {
         api.registerPlugin(new TestPlugin());

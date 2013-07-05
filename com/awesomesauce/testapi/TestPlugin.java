@@ -13,6 +13,7 @@ public class TestPlugin extends Plugin {
     {
 	Workbench.getServer().setBanList(new TestBanList());
 	Workbench.getServer().getBanList().add(new TestBanEntry("TestPlayer"));
+	Workbench.log(this, "Tick");
     }
 
 }
