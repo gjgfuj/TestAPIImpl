@@ -3,14 +3,15 @@ import net.minecraft.workbench.server.players.*;
 import java.util.Map;
 class TestBanList implements BanList
 {
+	private boolean enabled;
 	private Map<String, BanEntry> entries;
     public boolean isEnabled()
     {
-    	return true;
+    	return enabled;
     }
-    public void setEnabled(boolean enabled)
+    public void setEnabled(boolean aenabled)
     {
-    	
+    	enabled = aenabled;
     }
     public Map<String, BanEntry> getEntries()
     {
@@ -18,14 +19,21 @@ class TestBanList implements BanList
     }
     public boolean isBanned(String name)
     {
+    	if (entries.containsKey(name))
+    	{
+    		if (!(entries.get(name).hasExpired()))
+    			return true;
+    	}
     	return false;
     }
     public void add(BanEntry entry)
     {
-    	
+    	entries.put(entry.getName(), entry);
     }
     public BanEntry remove(String name)
     {
-    	return new TestBanEntry();
+    	BanEntry entry = entries.get(name);
+    	entries.remove(name);
+    	return entry;
     }
 }
